@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Multiplication Table</title>
+</head>
+<body style="text-align:center; font-family:Arial, sans-serif;">
+
+<h1>Multiplication Table</h1>
+
+Enter a number:
+<input type="number" id="num"><br><br>
+
+Enter limit:
+<input type="number" id="limit">
+<input type="button" value="Calculate" onclick="multiply()">
+
+<p id="result"></p>
+
+<script>
+function multiply() {
+  var n = parseInt(document.getElementById("num").value);
+  var I = parseInt(document.getElementById("limit").value);
+  var out = "";
+  for (var i = 1; i <= I; i++) {
+    out += i + " x " + n + " = " + (i * n) + "<br/>";
+  }
+  document.getElementById("result").innerHTML = out;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+<style>
+  body {
+    transition: background-color 0.5s;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  button {
+    font-size: 18px;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  input {
+    padding: 5px;
+    font-size: 16px;
+  }
+</style>
+<script>
+function changeBackgroundSequence() {
+  document.body.style.backgroundColor = 'Red';
+  setTimeout(() => {
+    document.body.style.backgroundColor = 'Pink';
+  }, 2000);
+  setTimeout(() => {
+    document.body.style.backgroundColor = 'Green';
+  }, 4000);
+  setTimeout(() => {
+    document.body.style.backgroundColor = 'Red';
+  }, 6000);
+}
+
+function highlightInput(element) {
+  element.style.backgroundColor = 'lightyellow';
+}
+</script>
+</head>
+<body>
+
+<h1>Welcome to My Home Page</h1>
+
+<button onmouseover="changeBackgroundSequence()">Change Background Color</button>
+<br><br>
+
+<label>Enter your name:</label>
+<input type="text" onfocus="highlightInput(this)">
+
+</body>
+</html>

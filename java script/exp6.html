@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Array Operations</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  h1 {
+    color: #333;
+  }
+  p {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>Array Operations</h1>
+<p id="original"></p>
+<p id="removed"></p>
+<p id="contains"></p>
+<p id="emptied"></p>
+
+<script>
+  let arr = [10, 20, 30, 40, 50, 60];
+  document.getElementById("original").innerHTML = "Original Array: " + arr;
+  console.log("Original Array:", arr);
+
+  let elementToRemove = 30;
+  arr = arr.filter(item => item !== elementToRemove);
+  document.getElementById("removed").innerHTML = "After removing " + elementToRemove + ": " + arr;
+  console.log("After removing", elementToRemove + ":", arr);
+
+  let valueToCheck = 40;
+  let message = arr.includes(valueToCheck)
+    ? "Array contains " + valueToCheck
+    : "Array does not contain " + valueToCheck;
+  document.getElementById("contains").innerHTML = message;
+  console.log(message);
+
+  arr.length = 0;
+  document.getElementById("emptied").innerHTML = "Array after emptying: " + arr;
+  console.log("Array after emptying:", arr);
+</script>
+
+</body>
+</html>

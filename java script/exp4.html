@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Comparison</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 300px;
+}
+button {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<h1>String Comparison Tool</h1>
+
+<input type="text" id="string1" placeholder="Enter first string">
+<input type="text" id="string2" placeholder="Enter second string">
+<button onclick="compareStrings()">Compare Strings</button>
+
+<div class="result" id="result"></div>
+
+<script>
+function compareStrings() {
+  const str1 = document.getElementById('string1').value;
+  const str2 = document.getElementById('string2').value;
+  let result = "";
+
+  result += `Equality Check: ${str1 === str2 ? 'Equal' : 'Not Equal'}<br>`;
+  result += `Length Comparison: ${str1.length === str2.length ? 'Same Length' : 'Different Length'}<br>`;
+  result += `Locale Compare: ${str1.localeCompare(str2) === 0 ? 'Equal' : 'Not Equal'}<br>`;
+  result += `Case Insensitive Comparison: ${str1.toLowerCase() === str2.toLowerCase() ? 'Equal' : 'Not Equal'}<br>`;
+
+  document.getElementById('result').innerHTML = result;
+}
+</script>
+</body>
+</html>

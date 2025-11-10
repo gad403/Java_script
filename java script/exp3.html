@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Operations</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+input, button {
+  margin: 5px;
+}
+</style>
+</head>
+<body>
+<h1>String Operations</h1>
+
+<input type="text" id="inputString" placeholder="Enter a string">
+<button onclick="performOperations()">Perform Operations</button>
+
+<h2>Results:</h2>
+<p id="reversed">Reversed String:</p>
+<p id="replaced">Replaced String:</p>
+<p id="palindrome">Is Palindrome:</p>
+
+<script>
+function performOperations() {
+  const str = document.getElementById('inputString').value.trim();
+  if (!str) {
+    alert("Please enter a string.");
+    return;
+  }
+
+  const reversedString = str.split("").reverse().join("");
+  document.getElementById('reversed').innerText = `Reversed String: ${reversedString}`;
+
+  const replacedString = str.replace(/ /g, "_");
+  document.getElementById('replaced').innerText = `Replaced String: ${replacedString}`;
+
+  const cleanedString = str.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
+  const isPalindrome = cleanedString === cleanedString.split("").reverse().join("");
+  document.getElementById('palindrome').innerText = `Is Palindrome: ${isPalindrome ? "Yes" : "No"}`;
+}
+</script>
+</body>
+</html>
