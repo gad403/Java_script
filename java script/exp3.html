@@ -1,48 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>String Operations</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
-input, button {
-  margin: 5px;
-}
-</style>
+<title>Simple String Operations</title>
 </head>
-<body>
-<h1>String Operations</h1>
+<body style="text-align:center; font-family:Arial; margin-top:40px;">
 
-<input type="text" id="inputString" placeholder="Enter a string">
-<button onclick="performOperations()">Perform Operations</button>
+<h2>String Operations</h2>
 
-<h2>Results:</h2>
-<p id="reversed">Reversed String:</p>
-<p id="replaced">Replaced String:</p>
-<p id="palindrome">Is Palindrome:</p>
+<!-- Input string -->
+Enter a string: 
+<input type="text" id="str" placeholder="Enter string"><br><br>
+
+<!-- For replacement -->
+Replace character: 
+<input type="text" id="oldChar" placeholder="Old">
+With: 
+<input type="text" id="newChar" placeholder="New"><br><br>
+
+<!-- Buttons for each task -->
+<button onclick="reverseString()">Reverse</button>
+<button onclick="replaceChar()">Replace</button>
+<button onclick="checkPalindrome()">Palindrome?</button>
+
+<p id="result"></p>
 
 <script>
-function performOperations() {
-  const str = document.getElementById('inputString').value.trim();
-  if (!str) {
-    alert("Please enter a string.");
-    return;
-  }
 
-  const reversedString = str.split("").reverse().join("");
-  document.getElementById('reversed').innerText = `Reversed String: ${reversedString}`;
-
-  const replacedString = str.replace(/ /g, "_");
-  document.getElementById('replaced').innerText = `Replaced String: ${replacedString}`;
-
-  const cleanedString = str.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
-  const isPalindrome = cleanedString === cleanedString.split("").reverse().join("");
-  document.getElementById('palindrome').innerText = `Is Palindrome: ${isPalindrome ? "Yes" : "No"}`;
+// 1️⃣ Reverse the string
+function reverseString() {
+    var s = document.getElementById("str").value;
+    var rev = "";                   // Empty string to store reverse
+    for (var i = s.length - 1; i >= 0; i--) {
+        rev = rev + s[i];           // Add characters from end to start
+    }
+    document.getElementById("result").innerHTML = "Reversed: " + rev;
 }
+
+// 2️⃣ Replace a character
+function replaceChar() {
+    var s = document.getElementById("str").value;
+    var oldC = document.getElementById("oldChar").value;
+    var newC = document.getElementById("newChar").value;
+
+    var newStr = "";                // New string after replacement
+    for (var i = 0; i < s.length; i++) {
+        if (s[i] == oldC)
+            newStr = newStr + newC; // Replace character
+        else
+            newStr = newStr + s[i]; // Keep same character
+    }
+
+    document.getElementById("result").innerHTML = 
+        "After replacement: " + newStr;
+}
+
+// 3️⃣ Check if Palindrome
+function checkPalindrome() {
+    var s = document.getElementById("str").value;
+    var rev = "";
+
+    for (var i = s.length - 1; i >= 0; i--) {
+        rev = rev + s[i];
+    }
+
+    if (s == rev)
+        document.getElementById("result").innerHTML = "✅ Palindrome";
+    else
+        document.getElementById("result").innerHTML = "❌ Not a Palindrome";
+}
+
 </script>
+
 </body>
 </html>
